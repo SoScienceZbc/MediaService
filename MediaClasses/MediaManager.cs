@@ -84,9 +84,10 @@ namespace SoScienceMediaService.MediaClasses
         }
         #endregion
 
-        public Task<VideoReply> SendMedia(VideoRequest request)
+        public Task<MediaReply> SendMedia(MediaRequest request)
         {
-            return Task.FromResult(client.SendVideo(request));
+            Console.WriteLine("Entered SendMedia() in MediaManager");
+            return Task.FromResult(client.SendMedia(request));
         }
     }
 }

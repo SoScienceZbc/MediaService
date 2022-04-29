@@ -12,10 +12,12 @@ namespace SoScienceMediaService.Services
     {
         private MediaManager mem = new MediaManager();
 
-        public override Task<VideoReply> SendVideo(VideoRequest request, ServerCallContext context)
+        public override Task<MediaReply> SendMedia(MediaRequest request, ServerCallContext context)
         {
-            Console.WriteLine($"Host:{context.Host}\nMethod: {context.Method}");
-            return mem.SendMedia(request);
+            Console.WriteLine($"Host:{context.Host} called Method:{context.Method}");
+            MediaReply vr = mem.SendMedia(request).Result;
+            Console.WriteLine("MediaReply: " + vr.ReplySuccessfull);
+            return Task.FromResult(vr);
         }
     }
 }
