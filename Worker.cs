@@ -30,6 +30,7 @@ namespace SoScienceMediaService
             {
                 cw.UseKestrel().UseStartup<Startup>().ConfigureKestrel(kj =>
                 {
+                    kj.Limits.MaxRequestBodySize = null; //unlimited. Not sure if good idea in the end
                     kj.Listen(System.Net.IPAddress.Any, 48048, lo =>
                     {
                         Console.WriteLine("use https");

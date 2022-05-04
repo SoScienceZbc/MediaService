@@ -89,5 +89,10 @@ namespace SoScienceMediaService.MediaClasses
             Console.WriteLine("Entered SendMedia() in MediaManager");
             return Task.FromResult(client.SendMedia(request));
         }
+        public Task<MediaRequests> GetMedias(UserDbInformation user)
+        {
+            Console.WriteLine("Entered GetMedias() in MediaManager");
+            return Task.FromResult(client.GetMedias(user));
+        }
     }
 }

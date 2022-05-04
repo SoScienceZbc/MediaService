@@ -10,14 +10,19 @@ namespace SoScienceMediaService.Services
 {
     public class MediaService : RemoteMediaService.RemoteMediaServiceBase
     {
-        private MediaManager mem = new MediaManager();
+        private MediaManager mediaHandler = new MediaManager();
 
         public override Task<MediaReply> SendMedia(MediaRequest request, ServerCallContext context)
         {
             Console.WriteLine($"Host:{context.Host} called Method:{context.Method}");
-            MediaReply vr = mem.SendMedia(request).Result;
+            MediaReply vr = mediaHandler.SendMedia(request).Result;
             Console.WriteLine("MediaReply: " + vr.ReplySuccessfull);
             return Task.FromResult(vr);
+        }
+        public override Task<MediaRequests> GetMedias(UserDbInformation user, ServerCallContext context)
+        {
+            Console.WriteLine($"Host:{context.Host} called Method:{context.Method}");
+            return mediaHandler.GetMedias(user);
         }
     }
 }
