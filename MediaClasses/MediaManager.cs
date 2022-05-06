@@ -94,5 +94,20 @@ namespace SoScienceMediaService.MediaClasses
             Console.WriteLine("Entered GetMedias() in MediaManager");
             return Task.FromResult(client.GetMedias(project));
         }
+        public Task<RetrieveMediaReply> RetrieveMedia(RetrieveMediaRequest request)
+        {
+            Console.WriteLine("Entered RetrieveMedia() in MediaManager");
+            return Task.FromResult(client.RetrieveMedia(request));
+        }
+        public Task<MediaReply> DeleteMedia(RetrieveMediaRequest request)
+        {
+            Console.WriteLine("Entered DeleteMedia() in MediaManager");
+            return Task.FromResult(client.DeleteMedia(request));
+        }
+        public Task<MediaReply> UpdateMedia(ChangeTitleRequest request)
+        {
+            Console.WriteLine("Entered UpdateMedia() in MediaManager");
+            return Task.FromResult(client.UpdateMedia(request));
+        }
     }
 }

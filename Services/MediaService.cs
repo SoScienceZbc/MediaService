@@ -24,5 +24,20 @@ namespace SoScienceMediaService.Services
             Console.WriteLine($"Host:{context.Host} called Method:{context.Method}");
             return mediaHandler.GetMedias(project);
         }
+        public override Task<RetrieveMediaReply> RetrieveMedia(RetrieveMediaRequest request, ServerCallContext context)
+        {
+            Console.WriteLine($"Host:{context.Host} called Method:{context.Method}");
+            return mediaHandler.RetrieveMedia(request);
+        }
+        public override Task<MediaReply> DeleteMedia(RetrieveMediaRequest request, ServerCallContext context)
+        {
+            Console.WriteLine($"Host:{context.Host} called Method:{context.Method}");
+            return mediaHandler.DeleteMedia(request);
+        }
+        public override Task<MediaReply> UpdateMedia(ChangeTitleRequest request, ServerCallContext context)
+        {
+            Console.WriteLine($"Host:{context.Host} called Method:{context.Method}");
+            return mediaHandler.UpdateMedia(request);
+        }
     }
 }
